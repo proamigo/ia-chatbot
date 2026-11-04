@@ -875,7 +875,7 @@ Devuelve SOLO los 2 trasfondos, separados por una línea en blanco. Sin numeraci
 
         except Exception as e:
             Clock.schedule_once(lambda dt: self._detener_spinner(), 0)
-            Clock.schedule_once(lambda dt: self._mostrar_error(str(e)), 0)
+            Clock.schedule_once(lambda dt, err=e: self._mostrar_error(str(err)), 0)
 
     def _mostrar_trasfondos_protagonista(self, t1, t2):
         self._detener_spinner()
