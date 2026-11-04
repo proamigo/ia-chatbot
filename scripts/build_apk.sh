@@ -12,7 +12,11 @@ set -euo pipefail
 
 cd /home/user/hostcwd
 
-# --- 1. Primera ejecucion: clona p4a (fallara por capture_logging con pip 26.3) ---
+# --- 0. Instalar pip 25.3 en el sistema (get-pip.py evita usar pip 26.3 roto) ---
+echo "Instalando pip 25.3 en el sistema..."
+curl -sS https://bootstrap.pypa.io/pip/25.3/get-pip.py | python3
+
+# --- 1. Primera ejecucion: clona p4a (fallara por capture_logging con pip 26.3 del venv) ---
 buildozer android debug || true
 
 # --- 2. Parchear p4a ya clonado: forzar pip<26 en lugar de pip install -U pip ---
