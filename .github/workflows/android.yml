@@ -32,7 +32,8 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq build-essential libssl-dev zlib1g-dev libffi-dev libtool libltdl-dev \
             libncurses5-dev libreadline-dev libsqlite3-dev liblzma-dev \
-            libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+            libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev \
+            cython3
 
       - name: Install Android SDK command-line tools
         run: |
