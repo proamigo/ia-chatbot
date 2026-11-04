@@ -27,6 +27,13 @@ jobs:
       - name: Install python-for-android
         run: pip install python-for-android sh cython
 
+      - name: Install system build dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq build-essential libssl-dev zlib1g-dev libffi-dev \
+            libncurses5-dev libreadline-dev libsqlite3-dev liblzma-dev \
+            libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+
       - name: Install Android SDK command-line tools
         run: |
           mkdir -p $HOME/android-sdk/cmdline-tools
