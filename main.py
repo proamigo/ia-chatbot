@@ -29,6 +29,23 @@ MODELOS_SUGERIDOS = [
     "meta/llama-3.1-70b-instruct",
 ]
 
+# Elenco por defecto (formato Hi Waifu: cada personaje tiene voz propia en la escena).
+# Coste en tokens: ~10 por personaje. Mantener corto.
+ELENCO_POR_DEFECTO = [
+    {"nombre": "Lucy", "emoji": "🌙", "rasgo": "netrunner, fría, reservada"},
+    {"nombre": "Rebecca", "emoji": "🔫", "rasgo": "solo, impulsiva, ruidosa"},
+    {"nombre": "Jackie Welles", "emoji": "🍺", "rasgo": "mercenario bonachón y fanfarrón"},
+    {"nombre": "Johnny Silverhand", "emoji": "🎸", "rasgo": "voz en tu cabeza, sarcástico, anti-corporativo"},
+    {"nombre": "Rogue Amendiares", "emoji": "👑", "rasgo": "fixer veterana, calculadora"},
+    {"nombre": "David Martinez", "emoji": "🔥", "rasgo": "leal, temerario, ex-Sandevistan"},
+]
+
+
+def _sin_acentos(t):
+    """Normaliza para comparar nombres del elenco."""
+    import unicodedata
+    return "".join(c for c in unicodedata.normalize("NFD", t or "") if unicodedata.category(c) != "Mn").lower().strip()
+
 
 class WaifuApp(App):
     def __init__(self, **kwargs):
@@ -472,25 +489,35 @@ class ChatScreen(Screen):
             self._trasfondos_intentados = True
             self._generar_trasfondos_protagonista()
             return
-        # Restaurar mensajes del historial previo al entrar
+        # Restaurar mensajes del historial previo al entrar (como escena)
         self.msgs_layout.clear_widgets()
         for m in app.historial:
-            remitente = app.mundo["nombre"] if m.get("role") == "assistant" else "Tú"
-            self._agregar_mensaje(remitente, m.get("content", ""), ia=(m.get("role") == "assistant"))
+            if m.get("role") == "assistant":
+                self._render_escena(m.get("content", ""))
+            else:
+                self._agregar_mensaje("Tú", m.get("content", ""), ia=False)
         self._saludo_pendiente = False
         if not app.api_key:
             Clock.schedule_once(lambda dt: self._pedir_api_key(), 0.5)
         self._actualizar_memoria_label()
 
-    def _agregar_mensaje(self, remitente, texto, ia=False):
+    def _agregar_mensaje(self, remitente, texto, ia=False, color=None, emoji=""):
+        # Escapa corchetes: el texto de la IA/usuario no debe romper el markup de Kivy
+        seguro = (texto or "").replace("[", "[[")
+        if remitente:
+            prefijo = f"[b]{emoji} {remitente}:[/b] " if emoji else f"[b]{remitente}:[/b] "
+            cuerpo = prefijo + seguro
+        else:
+            # Narración pura: sin nombre, en cursiva
+            cuerpo = f"[i]{seguro}[/i]"
         lbl = Label(
-            text=f"[b]{remitente}:[/b] {texto}",
+            text=cuerpo,
             markup=True,
             size_hint_y=None,
             text_size=(Window.width - 40, None),
             halign="left",
             valign="top",
-            color=(0.75, 0.9, 1, 1) if ia else (1, 1, 1, 1),
+            color=color if color else ((0.75, 0.9, 1, 1) if ia else (1, 1, 1, 1)),
         )
         lbl.bind(width=lambda *x: lbl.setter('text_size')(lbl, (lbl.width - 40, None)))
         lbl.bind(texture_size=lambda instance, size: setattr(lbl, 'height', size[1] + 20))
@@ -558,6 +585,10 @@ class ChatScreen(Screen):
                 else:
                     objetos_txt = "\nOBJETOS DEL USUARIO: (inventario vacío)\n"
 
+            elenco_txt = "\n".join(
+                [f"- {p.get('nombre','')} {p.get('emoji','')}: {p.get('rasgo','')}" for p in self._elenco(app)]
+            ) or "(sin elenco definido)"
+
             system = f"""\
 Eres {app.mundo['nombre']}, el narrador del mundo de Cyberpunk 2077 y Cyberpunk: Edgerunners.
 Personalidad: {app.mundo['personalidad']}
@@ -566,11 +597,20 @@ Historia: {app.mundo['historia']}
 LORE DE CYBERPUNK (referencia):
 {lore_resumen}
 
+ELENCO (los únicos que pueden hablar):
+{elenco_txt}
+
+Formato de respuesta (obligatorio):
+- Narración: texto normal, describe la escena.
+- Intervención de personaje: una línea que empieza con el nombre EXACTO del elenco, dos puntos, la acción y el diálogo entre comillas dobles.
+  Ejemplo: Lucy 🌙: cruza los brazos, sin mirarte "No confío en nadie que llegue con sangre ajena".
+- Máximo 3 intervenciones de personaje por turno. Si nadie habla, responde solo con narración.
+
 Reglas:
 - Responde siempre en español.
 - El USUARIO es el protagonista. Tú narras el mundo, los escenarios, los NPCs y las consecuencias de sus acciones.
 - NO eres un personaje con el que chatear uno a uno. Eres el mundo mismo: describes lo que ve, oye y siente el usuario en Night City.
-- Los personajes de Cyberpunk (Lucy, David Martinez, Johnny Silverhand, Rogue, etc.) aparecen como NPCs dentro de la historia, no como el interlocutor directo.
+- Solo los personajes del ELENCO hablan. Los demás NPCs se mencionan dentro de la narración.
 - Escribe como una página de novela: narración y diálogos entre comillas.
 - Mantén el tono distópico y cyberpunk de Night City.
 - No rompas la cuarta pared.
@@ -668,9 +708,81 @@ Hechos que debes recordar del usuario:
         return respuesta_limpia
 
 
+    # ---------- Escena multi-personaje (formato Hi Waifu) ----------
+
+    def _elenco(self, app):
+        """Personajes que pueden hablar en el mundo activo (fallback al elenco por defecto)."""
+        pj = (app.mundo or {}).get("personajes") if app else None
+        return pj if pj else ELENCO_POR_DEFECTO
+
+    def _dividir_escena(self, texto):
+        """Parte la respuesta en bloques: narración y líneas de personaje.
+
+        Formato esperado por línea:  Nombre emoji: acción "diálogo"
+        Solo reconoce nombres del elenco, así no parte narración normal
+        (ej. "Lo único claro: nada" sigue siendo narración).
+        """
+        import re
+        app = self.app_ref
+        indice = {}
+        for p in self._elenco(app):
+            nom = p.get("nombre", "") or ""
+            if not nom:
+                continue
+            indice[_sin_acentos(nom)] = p
+            primera = nom.split()[0]
+            indice.setdefault(_sin_acentos(primera), p)  # "David" -> David Martinez
+
+        bloques = []
+        buffer_narracion = []
+
+        def volcar():
+            if buffer_narracion:
+                junto = "\n".join(buffer_narracion).strip()
+                if junto:
+                    bloques.append({"tipo": "narracion", "texto": junto})
+                del buffer_narracion[:]
+
+        for linea in (texto or "").splitlines():
+            m = re.match(r"^\s*([^:\[\]]{1,28}?)\s*:\s*(.+)$", linea)
+            personaje = None
+            resto = ""
+            if m:
+                prefijo = re.sub(r"[^\w\sÁÉÍÓÚÜÑáéíóúüñ'’.\-]", " ", m.group(1)).strip()
+                personaje = indice.get(_sin_acentos(prefijo))
+                if personaje:
+                    resto = m.group(2).strip()
+            if personaje:
+                volcar()
+                bloques.append({
+                    "tipo": "personaje",
+                    "nombre": personaje.get("nombre", ""),
+                    "emoji": personaje.get("emoji", ""),
+                    "texto": resto,
+                })
+            else:
+                buffer_narracion.append(linea)
+        volcar()
+        return bloques
+
+    def _render_escena(self, texto):
+        """Dibuja la respuesta como escena: narración en cursiva + una línea por personaje.
+        Sin llamadas extra a la API: es parseo local del mismo texto."""
+        bloques = self._dividir_escena(texto)
+        if not bloques:
+            self._agregar_mensaje(None, texto, ia=True, color=(0.72, 0.75, 0.82, 1))
+            return
+        for b in bloques:
+            if b["tipo"] == "personaje":
+                self._agregar_mensaje(b["nombre"], b["texto"], ia=True,
+                                      color=(1, 0.85, 0.5, 1), emoji=b["emoji"])
+            else:
+                self._agregar_mensaje(None, b["texto"], ia=True, color=(0.72, 0.75, 0.82, 1))
+
     def _mostrar_respuesta(self, texto):
         app = self.app_ref
-        self._agregar_mensaje(app.mundo["nombre"], texto, ia=True)
+        self._render_escena(texto)
+        # El historial guarda el texto CRUDO (una sola entrada): no crece por fragmentar
         app.historial.append({"role": "assistant", "content": texto})
         app.guardar_memoria()
 
