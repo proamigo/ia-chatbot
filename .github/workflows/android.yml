@@ -27,9 +27,9 @@ jobs:
             --volume "${PWD}:/home/user/hostcwd" \
             --volume "${HOME}/.buildozer:/home/user/.buildozer" \
             --workdir /home/user/hostcwd \
-            --entrypoint buildozer \
+            --entrypoint '' \
             kivy/buildozer:latest \
-            android debug
+            bash -c "pip install --upgrade 'pip<26' && buildozer android debug"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
