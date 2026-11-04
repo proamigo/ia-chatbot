@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
@@ -72,7 +72,7 @@ jobs:
             --name "Chatbots" \
             --version 0.1 \
             --bootstrap sdl2 \
-            --requirements python3,kivy,requests \
+            --requirements python3,kivy \
             --permission INTERNET \
             --android-api 35 \
             --minsdk 21 \
