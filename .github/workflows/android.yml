@@ -13,11 +13,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Cache buildozer
+        uses: actions/cache@v4
+        with:
+          path: ~/.buildozer_cache
+          key: buildozer-${{ runner.os }}
+          restore-keys: |
+            buildozer-${{ runner.os }}
+
       - name: Build debug APK with kivy/buildozer Docker image
         run: |
           docker run --rm \
-            --user user \
             --volume "${PWD}:/home/user/hostcwd" \
+            --volume "${HOME}/.buildozer_cache:/home/user/.buildozer" \
             --workdir /home/user/hostcwd \
             --entrypoint buildozer \
             kivy/buildozer:latest \
