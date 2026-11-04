@@ -370,6 +370,10 @@ class ChatScreen(Screen):
                 app.config["api_key"] = clave
                 app._guardar_config()
                 popup.dismiss()
+                # Con la key disponible, permitir que se generen los trasfondos y re-entrar
+                self._trasfondos_intentados = False
+                if not app.trasfondo_protagonista:
+                    Clock.schedule_once(lambda dt: self.on_pre_enter(), 0.3)
 
         btn.bind(on_press=guardar)
         popup.open()
@@ -416,6 +420,7 @@ class ChatScreen(Screen):
         app.historial = []
         app.hechos = []
         app.trasfondo_protagonista = ""
+        self._trasfondos_intentados = False
         app.guardar_memoria()
         self._actualizar_memoria_label()
         # Limpiar pantalla de mensajes
@@ -461,8 +466,10 @@ class ChatScreen(Screen):
         if not app:
             return
         # Si es conversación nueva (sin historial y sin trasfondo elegido), mostrar opciones de trasfondo
-        if not app.historial and not app.trasfondo_protagonista:
+        if (not app.historial and not app.trasfondo_protagonista
+                and not getattr(self, "_trasfondos_intentados", False)):
             self._saludo_pendiente = False
+            self._trasfondos_intentados = True
             self._generar_trasfondos_protagonista()
             return
         # Restaurar mensajes del historial previo al entrar
@@ -702,8 +709,8 @@ Hechos que debes recordar del usuario:
     def _generar_trasfondos_protagonista(self):
         app = self.app_ref
         if not app or not app.api_key:
-            # Sin API key, ir directo al chat con trasfondo vacío
-            app.trasfondo_protagonista = ""
+            # Sin API key: no marcar trasfondo (el usuario lo elegira tras ingresarla).
+            # _trasfondos_intentados ya frena la re-entrada en on_pre_enter -> sin recursion.
             self._saludo_pendiente = True
             self.on_pre_enter()
             return
