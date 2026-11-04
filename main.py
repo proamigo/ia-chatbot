@@ -597,7 +597,7 @@ Hechos que debes recordar del usuario:
             respuesta = data["choices"][0]["message"]["content"]
 
             # --- Parsear cambios de inventario en la respuesta ---
-            self._procesar_objetos_ia(respuesta)
+            respuesta = self._procesar_objetos_ia(respuesta)
 
             Clock.schedule_once(lambda dt: self._detener_spinner(), 0)
             Clock.schedule_once(lambda dt: self._mostrar_respuesta(respuesta), 0)
@@ -607,16 +607,17 @@ Hechos que debes recordar del usuario:
             Clock.schedule_once(lambda dt, err=e: self._mostrar_error(str(err)), 0)
 
     def _procesar_objetos_ia(self, texto):
-        """Busca patrones [OBJETO: accion, nombre, tipo, cantidad] en la respuesta de la IA y actualiza el inventario."""
+        """Busca patrones [OBJETO: accion, nombre, tipo, cantidad] en la respuesta de la IA,
+        actualiza el inventario y devuelve el texto limpio sin las etiquetas [OBJETO: ...]."""
         import re
         app = self.app_ref
         if not app:
-            return
+            return texto
 
         patron = r"\[OBJETO:\s*([^\]]+)\]"
         matches = re.findall(patron, texto)
         if not matches:
-            return
+            return texto
 
         for m in matches:
             partes = [p.strip() for p in m.split(",")]
@@ -652,14 +653,12 @@ Hechos que debes recordar del usuario:
                 else:
                     app.objetos = [o for o in app.objetos if o.get("nombre") != nombre]
 
-        # Limpiar patrones [OBJETO: ...] de la respuesta mostrada al usuario
-        respuesta_limpia = re.sub(r"\s*\[OBJETO:[^\]]*\]", "", texto)
         # Guardar memoria con objetos actualizados
         app.guardar_memoria()
-        # Reemplazar la respuesta guardada en historial por la limpia
-        if app.historial and app.historial[-1].get("role") == "assistant":
-            app.historial[-1]["content"] = respuesta_limpia
-        app.guardar_memoria()
+
+        # Limpiar patrones [OBJETO: ...] de la respuesta mostrada al usuario
+        respuesta_limpia = re.sub(r"\s*\[OBJETO:[^\]]*\]", "", texto).strip()
+        return respuesta_limpia
 
 
     def _mostrar_respuesta(self, texto):
