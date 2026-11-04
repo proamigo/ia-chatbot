@@ -16,7 +16,9 @@ jobs:
       - name: Build debug APK with kivy/buildozer Docker image
         run: |
           docker run --rm \
+            --user user \
             --volume "${PWD}:/home/user/hostcwd" \
+            --workdir /home/user/hostcwd \
             --entrypoint buildozer \
             kivy/buildozer:latest \
             android debug

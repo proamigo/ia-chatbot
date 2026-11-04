@@ -14,4 +14,6 @@ android.architectures = armeabi-v7a
 
 [buildozer]
 log_level = 2
-warn_on_root = 1
+warn_on_root = 0
+# Increase per-command timeout: full Android builds exceed 60s default
+max_log_count = 1000
