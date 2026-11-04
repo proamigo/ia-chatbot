@@ -29,7 +29,7 @@ jobs:
             --workdir /home/user/hostcwd \
             --entrypoint '' \
             kivy/buildozer:latest \
-            bash -c "pip install --upgrade 'pip<26' && buildozer android debug"
+            bash scripts/build_apk.sh
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
