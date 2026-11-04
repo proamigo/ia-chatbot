@@ -12,9 +12,9 @@ set -euo pipefail
 
 cd /home/user/hostcwd
 
-# --- 0. Instalar pip 25.3 en el sistema (get-pip.py evita usar pip 26.3 roto) ---
-echo "Instalando pip 25.3 en el sistema..."
-python3 -c "import urllib.request; urllib.request.urlretrieve('https://bootstrap.pypa.io/pip/25.3/get-pip.py', '/tmp/get-pip.py')"
+# --- 0. Instalar pip 24.2 en el sistema (get-pip.py evita usar pip 26.3 roto) ---
+echo "Instalando pip 24.2 en el sistema..."
+python3 -c "import urllib.request; urllib.request.urlretrieve('https://bootstrap.pypa.io/pip/24.2/get-pip.py', '/tmp/get-pip.py')"
 python3 /tmp/get-pip.py
 
 # --- 1. Primera ejecucion: clona p4a (fallara por capture_logging con pip 26.3 del venv) ---
