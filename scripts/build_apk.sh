@@ -28,5 +28,14 @@ python3 -c "import urllib.request; urllib.request.urlretrieve('https://bootstrap
 python3 /tmp/get-pip.py 'pip<26'
 python3 -m pip --version
 
+# --- Keystore debug fijo ---
+# Sin esto, cada corrida de CI genera un keystore nuevo dentro del contenedor,
+# la firma cambia y al instalar encima falla con INSTALL_FAILED_UPDATE_INCOMPATIBLE.
+if [ -f android/debug.keystore ]; then
+  mkdir -p "$HOME/.android"
+  cp android/debug.keystore "$HOME/.android/debug.keystore"
+  echo "debug.keystore fijo instalado en $HOME/.android/"
+fi
+
 # --- Compilar (una sola pasada) ---
 buildozer android debug

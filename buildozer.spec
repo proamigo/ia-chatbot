@@ -5,6 +5,10 @@ package.domain = com.aleja.waifuchat
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,json
 version = 0.1
+# Forzar orientacion vertical. Sin esto, p4a usa landscape por defecto
+# y la app abre acostada aunque el telefono este en vertical.
+orientation = portrait
+fullscreen = 0
 requirements = python3,kivy,requests
 android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
 android.api = 35
