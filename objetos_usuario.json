@@ -1,0 +1,14 @@
+{
+  "objetos": [
+    {
+      "nombre": "Creditos",
+      "cantidad": 500,
+      "tipo": "moneda",
+      "descripcion": "Eddies, la moneda común en Night City."
+    }
+  ],
+  "cyberware": [],
+  "armas": [],
+  "dinero": 0,
+  "notas": []
+}

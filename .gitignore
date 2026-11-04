@@ -1,0 +1,8 @@
+config.json
+waifu_memoria.json
+__pycache__/
+*.pyc
+.buildozer/
+*.apk
+*.aab
+*.log

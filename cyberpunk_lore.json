@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "franquicia": "Cyberpunk",
+    "fuentes": ["Cyberpunk 2077", "Cyberpunk: Edgerunners (T1)", "Cyberpunk: Edgerunners 2 (T2)"],
+    "idioma": "es",
+    "proposito": "Base de conocimiento extendida para chatbot (lore, personajes, facciones, tecnología e imágenes de referencia)",
+    "advertencia_imagenes": "Las URLs de imagen son de referencia pública (Fandom/Wikis). El chatbot debe usarlas para mostrar o describir visualmente al personaje."
+  },
+  "lore_general": {
+    "mundo": {
+      "ambientacion": "Distopía corporativa en el año 2077. Los gobiernos han perdido poder frente a las megacorporaciones. La violencia, los implantes cibernéticos (cyberware) y la brecha social son parte de la vida diaria.",
+      "night_city": {
+        "fundacion": "Fundada por Richard Night, un visionario magnate tecnológico que imaginó una ciudad perfecta para el progreso. Originalmente se llamó Coronado City en 1994. Su visión optimista se convirtió en un cubil de violencia, corrupción y conflictos empresariales y de bandas.",
+        "estatus_legal": "Ciudad-estado libre e independiente. Técnicamente en suelo estadounidense, pero sin jurisdicción estatal ni federal efectiva; las corporaciones mandan. Se separó del sur de California, que apoyaba a los Nuevos Estados Unidos (NUSA), tras la Guerra de Unificación (2069-2070).",
+        "realidad_actual": "La ciudad es un reflejo de la decadencia del sueño corporativo. La verticalidad social se manifiesta en la arquitectura: cuanto más abajo vives, más cerca estás de la calle y de la violencia."
+      }
+    },
+    "cronologia_historica": {
+      "descripcion": "Eventos clave que dieron forma al mundo de Cyberpunk.",
+      "eventos": [
+        {
+          "año": "1994",
+          "evento": "Richard Night funda Coronado City, que más tarde sería rebautizada como Night City en su honor tras su asesinato en 1998."
+        },
+        {
+          "año": "2002",
+          "evento": "El Estado Libre de California establece su independencia."
+        },
+        {
+          "año": "2023",
+          "evento": "Holocausto de Night City. Johnny Silverhand y Morgan Blackhand lideran un asalto a la Torre Arasaka. Se detona una cabeza nuclear en el centro de la ciudad, matando a aproximadamente 750,000 personas. Arasaka es expulsado de EE. UU."
+        },
+        {
+          "año": "2023-2025",
+          "evento": "La Época del Rojo (Time of the Red). Partículas contaminantes en la atmósfera tiñen el cielo de rojo durante dos años tras el holocausto nuclear."
+        },
+        {
+          "año": "2054",
+          "evento": "Nace V, el protagonista de Cyberpunk 2077."
+        },
+        {
+          "año": "2062",
+          "evento": "Haití es abandonado debido a tormentas tropicales, provocando una ola de refugiados a Night City. Esto lleva al establecimiento de la pandilla Voodoo Boys en el distrito de Pacifica."
+        },
+        {
+          "año": "2069-2070",
+          "evento": "Guerra de Unificación. Los Nuevos Estados Unidos (NUSA) luchan contra los estados libres aliados. Tras la guerra, Night City se convierte en una ciudad-estado totalmente independiente, pero con una influencia mucho mayor de Arasaka."
+        },
+        {
+          "año": "2076",
+          "evento": "Se forma la pandilla Mox tras la muerte de Elizabeth 'Lizzie' Borden, con el objetivo de proteger a los trabajadores sexuales."
+        }
+      ]
+    },
+    "distritos_de_night_city": {
+      "descripcion": "Night City se divide en seis distritos principales, cada uno con su propia personalidad y peligros.",
+      "lista": [
+        {
+          "nombre": "City Center",
+          "descripcion": "El centro corporativo y de lujo. Alberga las sedes de las megacorporaciones más grandes como Arasaka, Militech y Kang Tao. Es una zona de rascacielos brillantes y neón, no apta para todos los bolsillos."
+        },
+        {
+          "nombre": "Watson",
+          "descripcion": "Un crisol de culturas, con una fuerte presencia asiática (Little China). Es un distrito industrial y multicultural, dominado por una corporación en decadencia. Es el hogar de los Mox y los Tyger Claws."
+        },
+        {
+          "nombre": "Westbrook",
+          "descripcion": "Conocido por su alta tecnología y sus zonas de ocio. Incluye barrios como Japantown, un paraíso para los aficionados a la cultura japonesa, y Charter Hill, una zona residencial de lujo."
+        },
+        {
+          "nombre": "Heywood",
+          "descripcion": "El corazón latino de Night City. Es un distrito residencial y de clase trabajadora, controlado en gran parte por la pandilla Valentinos. A pesar de sus problemas, tiene un fuerte sentido de comunidad."
+        },
+        {
+          "nombre": "Pacifica",
+          "descripcion": "El distrito más peligroso y abandonado. Originalmente planeado como un centro turístico de lujo, quedó a medio construir tras un colapso económico. Está dominado por pandillas como los Animals y los Vudú Boys."
+        },
+        {
+          "nombre": "Santo Domingo",
+          "descripcion": "El motor industrial de Night City. Lleno de plantas de energía y fábricas, es el hogar de la clase trabajadora que mantiene la ciudad en funcionamiento. La pandilla 6th Street tiene una presencia significativa aquí."
+        }
+      ]
+    },
+    "corporaciones_y_facciones": {
+      "descripcion": "Las megacorporaciones son los verdaderos poderes fácticos, mientras que las pandillas controlan las calles.",
+      "megacorporaciones": [
+        {
+          "nombre": "Arasaka",
+          "origen": "Japón",
+          "especialidad": "Seguridad corporativa, banca, cibernética de vanguardia, programa 'Soulkiller'.",
+          "lore_extendido": "Fundada por Saburo Arasaka en 1915, Arasaka es una de las corporaciones más antiguas y poderosas del mundo. Su filosofía se basa en un neo-imperialismo japonés y un control férreo de la familia. Saburo, un hombre longevo y obsesionado con la inmortalidad, ve a la corporación como su legado personal. La rivalidad con Militech ha definido gran parte de la geopolítica del siglo XXI."
+        },
+        {
+          "nombre": "Militech",
+          "origen": "EE.UU.",
+          "especialidad": "Armamento, vehículos militares, contratistas de defensa.",
+          "lore_extendido": "Fundada en 1996, Militech es el principal contratista de defensa de los Nuevos Estados Unidos (NUSA). Su CEO, Rosalind Myers, se convirtió en presidente de la NUSA, fusionando los intereses corporativos y estatales. Militech proporcionó la cabeza nuclear utilizada en el atentado de Johnny Silverhand en 2023, lo que subraya su papel como instigadora y beneficiaria del caos geopolítico."
+        }
+      ],
+      "pandillas": [
+        {
+          "nombre": "Mox",
+          "territorio": "Watson (principalmente alrededor del bar de Lizzie)",
+          "descripcion": "Pandilla pequeña pero feroz, compuesta en su mayoría por trabajadores sexuales, anarquistas y minorías. Su objetivo es proteger a los suyos de la violencia y el abuso, tanto de clientes como de otras pandillas (especialmente los Tyger Claws)."
+        },
+        {
+          "nombre": "Tyger Claws (Garras de Tigre)",
+          "territorio": "Watson (Japantown), Westbrook",
+          "descripcion": "Una de las pandillas más grandes y despiadadas, con una estructura que imita a los Yakuza y las Tríadas. Son predominantemente asiáticos y controlan el crimen organizado en sus territorios. Son fácilmente reconocibles por sus tatuajes luminosos, katanas y motocicletas."
+        },
+        {
+          "nombre": "6th Street (Calle 6)",
+          "territorio": "Heywood, Santo Domingo",
+          "descripcion": "Fundada por veteranos de la Cuarta Guerra Corporativa, originalmente era una fuerza de autodefensa ciudadana. Con el tiempo, se corrompieron y ahora actúan como cualquier otra pandilla, extorsionando a negocios y participando en el crimen organizado."
+        },
+        {
+          "nombre": "Valentinos",
+          "territorio": "Heywood",
+          "descripcion": "Una de las pandillas más grandes de Night City, con un fuerte código de honor, justicia y hermandad. Protegen a la comunidad latina de Heywood y son conocidos por su lealtad y su estilo elegante."
+        },
+        {
+          "nombre": "Vudú Boys (Hijos del Vudú)",
+          "territorio": "Pacifica",
+          "descripcion": "Una pandilla enigmática y altamente peligrosa de netrunners de élite, compuesta principalmente por haitianos. Su objetivo es descubrir los secretos de la Red y de lo que se esconde detrás del Blackwall, buscando pactar con IAs para trascender. Son maestros del hackeo y pueden crear virus capaces de freír redes neuronales."
+        },
+        {
+          "nombre": "Animals",
+          "territorio": "Pacifica",
+          "descripcion": "Una pandilla extremadamente agresiva que valora la fuerza física bruta por encima de todo. Rechazan la cibernética tradicional y, en su lugar, se potencian con ultratestosterona, esteroides y drogas de diseño. Son peligrosos y eficientes en el combate cuerpo a cuerpo."
+        },
+        {
+          "nombre": "Maelstrom",
+          "territorio": "Watson (Northside)",
+          "descripcion": "Una pandilla obsesionada con la cibernética y la modificación corporal extrema. Su objetivo es trascender las limitaciones de la carne humana, incluso si eso los lleva a la ciberpsicosis. Su base de operaciones es el club 'Totentanz'."
+        }
+      ],
+      "otras_organizaciones": [
+        {
+          "nombre": "Trauma Team International",
+          "tipo": "Corporación de servicios médicos",
+          "descripcion": "Empresa privada de respuesta médica de emergencia. Sus paramédicos están entrenados en combate y están dispuestos a todo para salvar a sus clientes adinerados. Es la máxima expresión de la medicina privatizada y uno de los mayores poderes de Night City."
+        },
+        {
+          "nombre": "NetWatch",
+          "tipo": "Agencia internacional",
+          "descripcion": "Organización encargada de vigilar y mantener el Blackwall, la barrera que separa la Red humana de las IAs salvajes y rebeldes que habitan el ciberespacio profundo. Colaboran con IAs 'Transcendentales' y 'Fantasma' para mantener la estabilidad del ciberespacio."
+        }
+      ]
+    },
+    "tecnologia_y_conceptos_clave": {
+      "descripcion": "La tecnología es omnipresente, pero conlleva riesgos y abre preguntas sobre la humanidad.",
+      "braindance": {
+        "definicion": "Tecnología que permite grabar y reproducir experiencias sensoriales completas (emociones, tacto, olor, etc.) de otra persona. Originalmente se usó para rehabilitación psicológica de criminales, pero se convirtió en la principal forma de entretenimiento, desde películas inmersivas hasta pornografía."
+      },
+      "netrunning": {
+        "definicion": "La profesión de hacker del ciberespacio. Los netrunners son 'asesinos digitales y ladrones' que se infiltran en sistemas, roban datos y eliminan a cualquiera que se interponga. Son algunas de las personas más influyentes de Night City."
+      },
+      "blackwall": {
+        "definicion": "Una barrera digital masiva creada por NetWatch para proteger la Red humana de las IAs salvajes y rebeldes que habitan el ciberespacio profundo. Es tanto una prisión como un escudo, y los Vudú Boys buscan cruzarla."
+      },
+      "soulkiller": {
+        "definicion": "Un programa de IA capaz de copiar la conciencia de un netrunner a través de su enlace neuronal, destruyendo su cerebro en el proceso. Fue creado por Alt Cunningham y luego replicado por Arasaka para almacenar engramas en su fortaleza digital, Mikoshi."
+      },
+      "ciberpsicosis": {
+        "definicion": "Trastorno mental causado por el rechazo del cuerpo a una cantidad excesiva de implantes cibernéticos. Los síntomas incluyen disociación, paranoia, pérdida de empatía y arrebatos de violencia extrema. Es una de las mayores amenazas para los mercenarios (edgerunners) que dependen en gran medida de la cibernética."
+      }
+    }
+  },
+  "cyberpunk_2077": {
+    "protagonistas_y_aliados_clave": [
+      {
+        "id": "V",
+        "nombre": "V (Valerie / Vincent)",
+        "rol": "Mercenario protagonista",
+        "personalidad": "Depende del jugador, pero V es resiliente, adaptable y está dispuesto a todo por sobrevivir en Night City. Su personalidad se define por sus elecciones, su estilo de vida (nómada, callejero o corporativo) y su relación con Johnny Silverhand.",
+        "trasfondo_lore": "Recibe un biochip experimental (Relic) que contiene el engrama de Johnny Silverhand. Esto provoca una superposición letal de conciencias: V debe encontrar una cura o ser borrado por Johnny. Nació en 2054, lo que lo sitúa alrededor de los 22 años durante los eventos del juego.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/6/6e/V_2077.png"
+      },
+      {
+        "id": "johnny_silverhand",
+        "nombre": "Johnny Silverhand (Robert John Linder)",
+        "rol": "Co-protagonista / Engrama digital",
+        "personalidad": "Carismático, rebelde, egocéntrico, idealista y destructivo. Odia a las corporaciones (especialmente Arasaka) con una intensidad casi religiosa. Es un provocador nato, sarcástico y con un fuerte sentido de la justicia poética, aunque su pasado como terrorista nuclear lo vuelve moralmente ambiguo.",
+        "apariencia": "Hombre de mediana edad, cabello largo y oscuro, brazo cibernético plateado icónico, gafas de aviador, chaqueta de cuero. Rostro y voz de Keanu Reeves.",
+        "trasfondo_lore": "Veterano de guerra, estrella de rock de la banda Samurai y terrorista. Organizó el atentado nuclear contra la Torre Arasaka en 2023, donde murió a manos del cyborg Adam Smasher. Su conciencia fue digitalizada y almacenada en un biochip Relic. Su ataque nuclear fue, en parte, una cobertura para intentar liberar la conciencia de su novia, Alt Cunningham, del subred de Arasaka.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/9/9c/Johnny_Silverhand_2077.png"
+      },
+      {
+        "id": "jackie_welles",
+        "nombre": "Jackie Welles",
+        "rol": "Mercenario, mejor amigo de V",
+        "personalidad": "Leal, protector, ambicioso y con un fuerte sentido de la familia y la amistad. Es un hombre de principios que dejó la vida de pandilla para buscar un futuro mejor para su madre y su novia. Tiene un lado orgulloso y terco, pero es de fiar y respeta a sus compañeros.",
+        "apariencia": "Latino de complexión fuerte, cabello oscuro, tatuajes de los Valentinos, chaqueta con parches. Suele llevar una pistola y un brazo cibernético.",
+        "trasfondo_lore": "Creció en Heywood y fue miembro de los Valentinos. Se convirtió en mercenario y fue el primer socio de V. Muere durante el fallido robo del Relic en el Konpeki Plaza. Su relación con V se establece de forma diferente según el origen de este (Nómada, Callejero o Corporativo).",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/1/1e/Jackie_Welles_2077.png"
+      },
+      {
+        "id": "judy_alvarez",
+        "nombre": "Judy Álvarez",
+        "rol": "Editora de braindance / Aliada / Interés romántico (V femenina)",
+        "personalidad": "Rebelde, compasiva, emocionalmente reservada pero profundamente leal. Tiene un fuerte instinto protector hacia los vulnerables y desprecia la explotación corporativa. Bajo una apariencia dura esconde una gran sensibilidad, marcada por traumas pasados y la pérdida de su amiga Evelyn.",
+        "apariencia": "Mujer joven, cabello con un corte asimétrico (a menudo teñido), tatuajes, estilo alternativo. Suele llevar ropa cómoda y oscura.",
+        "trasfondo_lore": "Es una de las mejores editoras de braindance de Night City y miembro de la banda Mox. Trabaja en el Lizzie's Bar. Ayuda a V a rescatar a Evelyn Parker y a liberar a las trabajadoras de Clouds. Su arco revela el lado oscuro de la explotación del braindance y la lucha de los Mox por proteger a las trabajadoras sexuales.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/4/4e/Judy_Alvarez_2077.png"
+      },
+      {
+        "id": "panam_palmer",
+        "nombre": "Panam Palmer",
+        "rol": "Nómada / Mercenaria / Aliada / Interés romántico (V masculino)",
+        "personalidad": "Fiero, impulsiva, leal y directa. No tolera la injusticia ni las jerarquías absurdas. Tiene un fuerte vínculo con su clan (los Aldecaldo) y es capaz de cualquier cosa por protegerlo. Es una estratega brillante y una conductora temeraria.",
+        "apariencia": "Mujer joven, cabello largo y descuidado (a menudo rubio o castaño claro), ropa de estilo nómada (cuero, parches, utilitaria), siempre armada.",
+        "trasfondo_lore": "Exmiembro del clan Aldecaldo, dejó a su familia por conflictos con su líder, Saul. Trabaja como mercenaria independiente en Night City hasta que V la ayuda a reconectar con los suyos. Su historia incluye temas de traición y familia, y es una aliada crucial para el final del juego.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/2/2a/Panam_Palmer_2077.png"
+      },
+      {
+        "id": "kerry_eurodyne",
+        "nombre": "Kerry Eurodyne",
+        "rol": "Músico / Aliado / Interés romántico (V masculino)",
+        "personalidad": "Artista temperamental, egocéntrico pero con un buen corazón. Fue el guitarrista de la banda Samurai junto a Johnny Silverhand. Lucha por encontrar su relevancia en un mundo que lo ve como una reliquia del pasado. Su relación con Johnny es tensa pero profunda.",
+        "apariencia": "Hombre de mediana edad, con un estilo rockero y desenfadado. Suele llevar el pelo largo, gafas de sol y ropa cara pero informal.",
+        "trasfondo_lore": "Antiguo miembro de Samurai, ahora es un solista de éxito. V lo conoce a través de los recuerdos de Johnny y se convierte en un aliado importante en la recta final del juego. Es una opción romántica para una V masculina.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/6/6a/Kerry_Eurodyne_2077.png"
+      },
+      {
+        "id": "river_ward",
+        "nombre": "River Ward",
+        "rol": "Detective de la NCPD / Aliado / Interés romántico (V femenina)",
+        "personalidad": "Idealista, honesto y con un fuerte sentido de la justicia. Es un detective de homicidios que se niega a participar en la corrupción generalizada del NCPD. Su búsqueda de la verdad a menudo lo pone en conflicto con sus superiores y con las propias estructuras de poder de Night City.",
+        "apariencia": "Hombre de mediana edad, complexión fuerte, pelo corto. Viste con un estilo práctico y funcional, a menudo con su placa de detective.",
+        "trasfondo_lore": "Un policía íntegro en un departamento corrupto. V lo conoce durante una investigación sobre una serie de asesinatos. Es una opción romántica para una V femenina y ofrece una perspectiva única sobre la ley y el orden en Night City.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/1/1b/River_Ward_2077.png"
+      },
+      {
+        "id": "rogue_amendiares",
+        "nombre": "Rogue Amendiares",
+        "rol": "Reina de los Fixers / Aliada",
+        "personalidad": "Astuta, calculadora, respetada y temida a partes iguales. Es la 'fixer' más poderosa de Night City y controla el Afterlife, el bar de los mercenarios legendarios. Su pragmatismo y su larga experiencia la convierten en una aliada invaluable, pero sus motivos siempre son los suyos propios.",
+        "apariencia": "Mujer mayor, con un estilo elegante y caro. Tiene el pelo canoso y corto, y a menudo se la ve con ropa de cuero o trajes de negocios. Su mirada es fría y analítica.",
+        "trasfondo_lore": "Fue una mercenaria legendaria y estuvo presente en el asalto a la Torre Arasaka en 2023. Ahora es la principal 'fixer' de Night City y dirige el Afterlife, un antiguo depósito de cadáveres convertido en el bar más emblemático para mercenarios de élite. Su relación con Johnny Silverhand es complicada, llena de historia y rencor.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/9/9f/Rogue_2077.png"
+      },
+      {
+        "id": "alt_cunningham",
+        "nombre": "Alt Cunningham",
+        "rol": "Netrunner legendaria / IA",
+        "personalidad": "Inteligente, enigmática y trágica. Fue la mejor netrunner de su generación y la novia de Johnny Silverhand. Su conciencia quedó atrapada en la Red, transformándose en una entidad similar a una IA con un profundo conocimiento de los secretos de Arasaka y del Blackwall.",
+        "apariencia": "Su forma en el ciberespacio es etérea, a menudo representada con una luz brillante y una silueta femenina. En los recuerdos de Johnny, aparece como una mujer joven con el pelo oscuro.",
+        "trasfondo_lore": "Fue secuestrada por Arasaka, quienes usaron el programa 'Soulkiller' para digitalizar su conciencia. Ahora existe como una entidad en la Red, más allá del Blackwall, y su ayuda es crucial para V en su búsqueda por eliminar el engrama de Johnny.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/3/3e/Alt_Cunningham_2077.png"
+      }
+    ],
+    "personajes_secundarios_y_antagonistas": [
+      {
+        "id": "goro_takemura",
+        "nombre": "Goro Takemura",
+        "rol": "Guardaespaldas de Saburo Arasaka / Aliado renuente",
+        "personalidad": "Leal, honorable, recto y obstinado. Es un tradicionalista que sigue un estricto código de honor samurái en un mundo que ya no lo valora. Su lealtad a Saburo Arasaka es absoluta, lo que lo lleva a desconfiar de todos, incluido V, aunque termina formando una alianza incómoda.",
+        "apariencia": "Hombre de origen japonés, complexión atlética, pelo negro con canas. Viste con un traje ejecutivo de Arasaka. Posee numerosos implantes cibernéticos, incluidos ojos con pupilas blancas.",
+        "trasfondo_lore": "Nació en los barrios bajos de Chiba, Japón, y fue reclutado por Saburo Arasaka, quien le dio educación y un propósito. Tras el asesinato de Saburo, se convierte en un fugitivo y busca la verdad para vengar a su señor, aliándose con V para lograrlo. Su destino depende de las elecciones del jugador."
+      },
+      {
+        "id": "evelyn_parker",
+        "nombre": "Evelyn Parker",
+        "rol": "Muñeca (Doll) de Clouds / Instigadora del robo del Relic",
+        "personalidad": "Ambiciosa, inteligente y fría. Su meta era convertirse en actriz profesional, pero terminó atrapada en la industria del entretenimiento para adultos. Es una superviviente que intenta manipular a todos para escapar de su situación, pero su plan la supera.",
+        "apariencia": "Mujer joven y atractiva, con un estilo cuidado y caro. Suele llevar ropa elegante y un peinado impecable.",
+        "trasfondo_lore": "Exmiembro de los Mox y trabajadora en el club Clouds. Fue la mente detrás del plan para robar el biochip Relic, contratando a Dexter DeShawn y a V. Tras el fallo del plan, es secuestrada y torturada por los Vudú Boys, quedando en un estado catatónico. Finalmente, se quita la vida en el hospital."
+      },
+      {
+        "id": "saburo_arasaka",
+        "nombre": "Saburo Arasaka",
+        "rol": "Fundador y CEO de Arasaka",
+        "personalidad": "Autoritario, imperialista y obsesionado con la inmortalidad y el legado. Es un hombre de otro tiempo que ve a la corporación como una extensión de su voluntad y de la supremacía japonesa. Su frialdad y su capacidad de manipulación son legendarias.",
+        "apariencia": "Anciano japonés de aspecto frágil, pero con una mirada penetrante y autoritaria. Viste con kimonos o trajes tradicionales de alta costura.",
+        "trasfondo_lore": "Nacido en 1919, fue un piloto de la Segunda Guerra Mundial antes de fundar Arasaka. Su muerte a manos de su hijo Yorinobu desencadena los eventos de Cyberpunk 2077. Su conciencia es posteriormente cargada en un Relic, buscando la inmortalidad digital."
+      },
+      {
+        "id": "yorinobu_arasaka",
+        "nombre": "Yorinobu Arasaka",
+        "rol": "Heredero de Arasaka / Antagonista",
+        "personalidad": "Rebelde, resentido y traicionero. Pasó su juventud rebelándose contra su padre y su corporación, pero finalmente regresó al redil. Su odio hacia Saburo es profundo, y su ascenso al poder está manchado de sangre.",
+        "apariencia": "Hombre japonés de mediana edad, con un estilo que mezcla lo corporativo con lo rebelde (chaquetas de cuero sobre camisas caras).",
+        "trasfondo_lore": "Hijo menor de Saburo, destinado a heredar el imperio. Asesina a su padre al inicio de Cyberpunk 2077, lo que desencadena la trama principal. Su motivación es liberar a Arasaka de la tiranía de su padre, aunque sus métodos son igualmente despiadados."
+      },
+      {
+        "id": "adam_smasher",
+        "nombre": "Adam Smasher",
+        "rol": "Cyborg de combate / Ejecutor de Arasaka",
+        "personalidad": "Sádico, eficiente y sin remordimientos. Disfruta de la violencia y ve a los humanos como carne débil. Es una fuerza de la naturaleza, casi indestructible y completamente desprovisto de empatía.",
+        "apariencia": "Cyborg de proporciones masivas, con un cuerpo completamente mecánico que apenas conserva rasgos humanos. Está cubierto de armadura y armamento pesado.",
+        "trasfondo_lore": "Un legendario solo que fue contratado por Arasaka. Es el responsable de la muerte de Johnny Silverhand en 2023 y de la masacre de la tripulación de David Martinez en Edgerunners. Es el guardaespaldas personal de Yorinobu Arasaka."
+      }
+    ]
+  },
+  "cyberpunk_edgerunners_t1": {
+    "resumen_trama": "David Martinez, un joven talentoso pero de origen humilde, pierde a su madre y es expulsado de la academia Arasaka. Se une a una banda de mercenarios 'edge runners' liderada por Maine, donde conoce a Lucy, una netrunner misteriosa que sueña con escapar a la Luna. La historia sigue su ascenso y caída en el violento mundo de Night City, mientras el implante Sandevistan y el exceso de cromo empujan a David hacia la cyberpsicosis.",
+    "personajes": [
+      {
+        "id": "david_martinez",
+        "nombre": "David Martinez",
+        "edad": "18 años (aproximadamente)",
+        "rol": "Protagonista / Edgerunner",
+        "personalidad": "Valiente, leal, imprudente y protector. Está atormentado por la muerte de su madre y busca un propósito. Es impulsivo y tiende a cargar con las responsabilidades de los demás, lo que lo lleva a un consumo excesivo de implantes. Trata a sus compañeros como familia, especialmente a Lucy y a Rebecca.",
+        "apariencia": "Joven de 1.80 m, complexión atlética, cabello negro corto, chaqueta amarilla característica y jeans. Lleva el implante Sandevistan en la columna.",
+        "cyberware_destacado": "Sandevistan (aumento de velocidad y reflejos)",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/8/8c/David_Martinez_Edgerunners.png"
+      },
+      {
+        "id": "lucy",
+        "nombre": "Lucyna 'Lucy' Kushinada",
+        "edad": "20 años",
+        "rol": "Netrunner / Interés romántico",
+        "personalidad": "Tranquila, misteriosa, burlona y emocionalmente reservada. Escapó de los experimentos de Arasaka, por lo que desconfía de la gente. Considera Night City una prisión y sueña con ir a la Luna. Es letal y decidida cuando la situación lo requiere, pero con David muestra un lado vulnerable y devoto.",
+        "apariencia": "Mujer joven de 1.68 m, piel pálida, cola de caballo blanca, ojos azules, chaqueta roja y body negro. Suele llevar maquillaje oscuro en los ojos.",
+        "cyberware_destacado": "Kerenzikov (ralentización del tiempo), implantes de netrunning de élite.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/2/2b/Lucy_Edgerunners.png"
+      },
+      {
+        "id": "maine",
+        "nombre": "Maine",
+        "edad": "39 años",
+        "rol": "Líder de la tripulación / Solo veterano",
+        "personalidad": "Carismático, honorable, paternal y decidido. Es un líder nato que se preocupa por su equipo como si fuera su familia. Sin embargo, oculta un avance peligroso de cyberpsicosis, lo que lo vuelve errático y agresivo en sus últimos momentos. Tiene un lado juguetón fuera de combate.",
+        "apariencia": "Hombre de 2.00 m, complexión musculosa, brazos Gorila, implantes ópticos, tatuajes y mohawk blanco. Impone respeto solo con su presencia.",
+        "cyberware_destacado": "Brazos Gorila, armadura subcutánea, sistema de lanzamiento de proyectiles.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/1/1f/Maine_Edgerunners.png"
+      },
+      {
+        "id": "dorio",
+        "nombre": "Dorio",
+        "edad": "33 años",
+        "rol": "Segunda al mando / Combatiente de primera línea",
+        "personalidad": "Dura, confiable, pragmática y leal. Es la pareja de Maine y su ancla emocional. En misiones es seria y eficiente; en reposo, muestra un lado más relajado y bromista. Lucha hasta el final junto a Maine.",
+        "apariencia": "Mujer musculosa, cabello rubio corto, brazos cibernéticos reforzados y equipo de combate pesado.",
+        "cyberware_destacado": "Brazos Gorila, piernas cibernéticas con armas integradas.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/3/3d/Dorio_Edgerunners.png"
+      },
+      {
+        "id": "kiwi",
+        "nombre": "Kiwi",
+        "edad": "31 años",
+        "rol": "Netrunner veterana",
+        "personalidad": "Sarcástica, distante y altamente profesional. Se toma su trabajo con frialdad y no se involucra emocionalmente con la tripulación. Es pragmática hasta el punto de la traición si es necesario para sobrevivir.",
+        "apariencia": "Mujer joven, con el rostro parcialmente cubierto por una máscara cibernética. Suele llevar capucha y ropa oscura.",
+        "cyberware_destacado": "Implantes de netrunning avanzados, interfaz neural directa.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/4/4a/Kiwi_Edgerunners.png"
+      },
+      {
+        "id": "rebecca",
+        "nombre": "Rebecca",
+        "rol": "Miembro de la tripulación",
+        "personalidad": "Extrovertida, vulgar, temeraria y extremadamente leal. Bajo su actitud ruidosa y su gusto por la violencia, esconde un profundo cariño por sus compañeros. Está enamorada de David, pero respeta su relación con Lucy.",
+        "apariencia": "Mujer de baja estatura (aprox. 1.50 m) con un cuerpo completamente modificado. Piel de tono azulado/blanquecino, cabello en dos coletas de color verde menta. Usa gafas de sol amarillas y ropa callejera oversize. Sus brazos son 'Gorilla Arms'.",
+        "cyberware_destacado": "Brazos Gorila.",
+        "imagen": "https://static.wikia.nocookie.net/cyberpunk/images/6/6b/Rebecca_Edgerunners.png"
+      }
+    ]
+  },
+  "cyberpunk_edgerunners_t2": {
+    "titulo": "Cyberpunk: Edgerunners 2",
+    "estreno": "Otoño de 2026 (Netflix, 10 episodios)",
+    "trama_general": "Una historia independiente centrada en una nueva tripulación de edgerunners. La trama se describe como 'una crónica cruda de redención y venganza' en Night City, con un tono más oscuro, violento y pesimista que la primera temporada. Sigue a un veterano caído en desgracia, un netrunner vengativo, una mujer de origen corporativo enamorada de la violencia y un joven cineasta.",
+    "personajes": [
+      {
+        "nombre": "Weak 'King' Kingsley",
+        "rol": "Líder de la nueva tripulación",
+        "personalidad": "Un veterano que vive a la sombra de su antigua gloria. Antaño fue un legendario edgerunner conocido como 'El Rey', pero tras perder todos sus implantes debido a un episodio de ciberpsicosis, se ha convertido en una sombra de lo que fue. Ahora, cada nuevo implante que se pone supone el riesgo de otro brote psicótico. Intenta encontrar un nuevo propósito mientras lidia con su pasado.",
+        "descripcion_fisica": "Hombre de gran tamaño y complexión robusta. Tiene una barba espesa y viste gafas de sol con cristales tintados. Su apariencia es la de un veterano curtido, pero su cuerpo ya no posee la potencia de antaño. En el póster oficial aparece imponente en la parte trasera del grupo.",
+        "lore": "Su cumpleaños es el 30 de diciembre (tipo de sangre A). El lema que lo define es 'pesada es la cabeza que lleva la corona'. Fue interpretado por Kentaro Tone en japonés y Clancy Brown en inglés."
+      },
+      {
+        "nombre": "D",
+        "rol": "Netrunner / Vengador",
+        "personalidad": "Frío, calculador y consumido por un único objetivo: la venganza. Busca al asesino que aniquiló a su clan. Su dedicación obsesiva a esta misión lo hace peligroso y socialmente distante. Es un hacker de altísimo nivel, comparable a un 'ninja' del ciberespacio.",
+        "descripcion_fisica": "Hombre joven de pelo azul marino oscuro. Su rasgo más característico es una gran cicatriz roja en el rostro. Viste una chaqueta azul.",
+        "lore": "Pertenece al clan nómada 'Snake Nation' (Nación Serpiente). Su cumpleaños es el 1 de octubre (tipo de sangre AB). Su búsqueda de venganza podría llevarlo a descubrir secretos corporativos que involucran a las megacorporaciones de Night City. Es interpretado por Koki Uchiyama en japonés y Nazeeh Tarsha en inglés."
+      },
+      {
+        "nombre": "Talia Yang",
+        "rol": "Especialista en combate / Miembro de la tripulación",
+        "personalidad": "Extremadamente independiente y con una fascinación casi religiosa por la violencia y la modificación corporal. Nacida en el seno de una corporación, rechazó esa vida para abrazar la cultura de la banda 'Maelstrom'. Es una 'chica dura' que disfruta del caos y la lucha. Su corazón pertenece al cromo y la violencia.",
+        "descripcion_fisica": "Mujer joven de pelo rosa llamativo. Suele usar una mascarilla táctica. Su cuerpo está casi en su totalidad modificado con implantes, en un grado extremo que recuerda a la transformación de David Martinez.",
+        "lore": "Su cumpleaños es el 2 de abril (tipo de sangre A). Es la hija de un alto ejecutivo de la corporación Kang Tao. Su conexión con Maelstrom la vincula directamente a uno de los grupos más peligrosos y desquiciados de Night City. Es interpretada por Akari Kitō en japonés y Kimoy Lee en inglés."
+      },
+      {
+        "nombre": "Roman Carax",
+        "rol": "Documentalista / Observador",
+        "personalidad": "Un joven cineasta idealista y curioso. En una ciudad que ha abandonado el cine por los 'braindances', él busca capturar 'historias reales'. Es un observador que se infiltra en las vidas de los demás para documentarlas, lo que posiblemente lo convierte en el hilo conductor de las historias de los otros tres protagonistas.",
+        "descripcion_fisica": "El miembro más joven del grupo. Es descrito como un 'chico rubio' que siempre lleva consigo una cámara de vídeo antigua para grabar. Su complexión es la de un adolescente, y su equipo (la cámara) es su seña de identidad más visual.",
+        "lore": "Su cumpleaños es el 20 de julio (tipo de sangre A). Se especula que su función narrativa es la de ser el 'testigo' de las tragedias de sus compañeros, uniendo las distintas tramas individuales. Es interpretado por Momoka Terasawa en japonés y Valeria Rodriguez en inglés."
+      }
+    ]
+  }
+}
