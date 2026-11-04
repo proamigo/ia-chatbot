@@ -4,44 +4,24 @@
 # Problema: p4a (python-for-android) crea venvs internos y ejecuta
 # `pip install -U pip` dentro de cada uno, forzando pip 26.3, que esta roto
 # (ImportError: cannot import name 'capture_logging' from pip._internal.utils.logging).
-# Solucion: wrapper de pip que intercepta cualquier `install -U pip` / `--upgrade pip`
-# y lo convierte en `install 'pip<26'`.
+# Solucion: clonar p4a master localmente, parchear build.py para forzar pip<26,
+# y usar p4a.source_dir para que buildozer use la copia parcheada.
 
 set -euo pipefail
 
-# --- Wrapper de pip para forzar pip<26 en todos los venvs ---
-if [ -f /usr/local/bin/pip ] && [ ! -f /usr/local/bin/pip.real ]; then
-  mv /usr/local/bin/pip /usr/local/bin/pip.real
-fi
-if [ -f /usr/local/bin/pip.real ]; then
-  cat > /usr/local/bin/pip << 'PIPEOF'
-#!/bin/bash
-if echo "$@" | grep -qE '(--upgrade|-U).*pip|pip.*(--upgrade|-U)'; then
-  set -- "${@//-U pip/==pip<26}"
-  set -- "${@//--upgrade pip/==pip<26}"
-fi
-exec /usr/local/bin/pip.real "$@"
-PIPEOF
-  chmod +x /usr/local/bin/pip
+cd /home/user/hostcwd
+
+# --- 1. Clonar p4a master localmente ---
+if [ ! -d /tmp/p4a-master ]; then
+  git clone -b master --depth 1 https://github.com/kivy/python-for-android.git /tmp/p4a-master
 fi
 
-if [ -f /usr/local/bin/pip3 ] && [ ! -f /usr/local/bin/pip3.real ]; then
-  mv /usr/local/bin/pip3 /usr/local/bin/pip3.real
-fi
-if [ -f /usr/local/bin/pip3.real ]; then
-  cat > /usr/local/bin/pip3 << 'PIPEOF3'
-#!/bin/bash
-if echo "$@" | grep -qE '(--upgrade|-U).*pip|pip.*(--upgrade|-U)'; then
-  set -- "${@//-U pip/==pip<26}"
-  set -- "${@//--upgrade pip/==pip<26}"
-fi
-exec /usr/local/bin/pip3.real "$@"
-PIPEOF3
-  chmod +x /usr/local/bin/pip3
-fi
+# --- 2. Parchear p4a: forzar pip<26 en lugar de pip install -U pip ---
+sed -i "s|pip install -U pip|pip install 'pip<26'|g" /tmp/p4a-master/pythonforandroid/build.py
 
-# Instalar pip<26 en el entorno del contenedor
-pip install --upgrade 'pip<26'
+# --- 3. Configurar buildozer.spec para usar p4a parcheado ---
+sed -i "/^p4a.source_dir =/d" buildozer.spec
+echo "p4a.source_dir = /tmp/p4a-master" >> buildozer.spec
 
-# Ejecutar buildozer
+# --- 4. Ejecutar buildozer ---
 buildozer android debug
