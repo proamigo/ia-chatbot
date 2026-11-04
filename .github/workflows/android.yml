@@ -27,6 +27,22 @@ jobs:
       - name: Install python-for-android
         run: pip install python-for-android sh cython
 
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ runner.os }}-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            pip-${{ runner.os }}-
+
+      - name: Cache p4a build
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/python-for-android/build
+          key: p4a-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
+          restore-keys: |
+            p4a-${{ runner.os }}-
+
       - name: Install system build dependencies
         run: |
           sudo apt-get update -qq
