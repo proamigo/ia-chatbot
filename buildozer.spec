@@ -12,6 +12,9 @@ android.minapi = 21
 android.ndk = 25b
 android.architectures = armeabi-v7a
 android.accept_sdk_license = True
+# Use develop branch of python-for-android: fixes pip 26 incompatibility
+# (ImportError: cannot import name 'capture_logging') #3364
+p4a.branch = develop
 
 [buildozer]
 log_level = 2
