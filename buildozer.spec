@@ -12,9 +12,10 @@ android.minapi = 21
 android.ndk = 25b
 android.architectures = armeabi-v7a
 android.accept_sdk_license = True
-# Use develop branch of python-for-android: fixes pip 26 incompatibility
-# (ImportError: cannot import name 'capture_logging') #3364
-p4a.branch = develop
+# Use master branch of python-for-android: develop has a broken libthorvg recipe
+# (IndexError: list index out of range in recipes/libthorvg/__init__.py:98)
+# master is stable and also fixes pip 26 incompatibility (#3364)
+p4a.branch = master
 
 [buildozer]
 log_level = 2
