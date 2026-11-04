@@ -11,6 +11,7 @@ android.api = 35
 android.minapi = 21
 android.ndk = 25b
 android.architectures = armeabi-v7a
+android.accept_sdk_license = True
 
 [buildozer]
 log_level = 2
