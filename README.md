@@ -1,4 +1,4 @@
-# Waifu Chat (app aparte)
+# chatbot (app aparte)
 
 Chat de roleplay estilo anime usando la API de NVIDIA (compatível con OpenAI).
 
